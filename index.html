@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#103e3c" />
+    <meta name="description" content="An animated wedding invitation for Harsh and Aayushi — 22 and 23 January 2027." />
+    <title>Harsh &amp; Aayushi — Wedding Invitation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Great+Vibes&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css?v=baked-scenes-27" />
+    <script src="./app.js?v=baked-scenes-27" defer></script>
+  </head>
+  <body>
+    <main class="story" id="story" aria-label="Harsh and Aayushi's wedding invitation">
+      <section class="scene scene--doors is-active" data-scene="0" aria-label="Opening peacock doors">
+        <div class="door-stage" aria-hidden="true">
+          <div class="door-leaf door-leaf--left"></div>
+          <div class="door-leaf door-leaf--right"></div>
+          <div class="door-light"></div>
+          <div class="door-seal"></div>
+        </div>
+        <p class="door-prompt" aria-hidden="true">Touch the lotus seal</p>
+        <button class="door-open-control" type="button" data-open>
+          <span class="visually-hidden">Touch the peacock doors to open the invitation</span>
+        </button>
+      </section>
+
+      <section class="scene scene--blessings" data-scene="1" aria-label="Divine blessings">
+        <div class="scene-art art--ganesha-background" aria-hidden="true"></div>
+        <div class="ganesha-swing" aria-hidden="true"></div>
+        <div class="scene-veil scene-veil--ivory" aria-hidden="true"></div>
+      </section>
+
+      <section class="scene scene--invitation" data-scene="2" aria-label="Wedding invitation">
+        <div class="scene-art art--invitation" aria-hidden="true"></div>
+        <article class="invite-sign-copy">
+          <p class="eyebrow">Wedding invitation</p>
+          <h1>Harsh <span>&amp;</span> Aayushi</h1>
+          <p class="invite-copy">Together with their families, invite you to celebrate their wedding festivities.</p>
+          <div class="detail-grid">
+            <p><strong>22nd &amp; 23rd January</strong><span>2027</span></p>
+            <p><strong>Atharva Greens Resort</strong><span>Rewa, MP</span></p>
+          </div>
+        </article>
+      </section>
+
+      <section class="scene event-scene scene--haldi" data-scene="3" aria-label="Haldi celebration">
+        <div class="scene-art art--haldi" aria-hidden="true"></div>
+        <div class="scene-veil scene-veil--sunny" aria-hidden="true"></div>
+        <article class="event-plaque event-plaque--haldi" aria-labelledby="haldi-title">
+          <p class="eyebrow">A sunlit celebration</p>
+          <h2 id="haldi-title">Haldi</h2>
+          <div class="scratch-wrap" data-scratch>
+            <p class="scratch-content">22nd January 2027<br /><span>12pm</span></p>
+            <canvas class="scratch-canvas" aria-label="Scratch to reveal the Haldi date and time" tabindex="0"></canvas>
+          </div>
+        </article>
+      </section>
+
+      <section class="scene event-scene scene--carnival" data-scene="4" aria-label="Carnival celebration">
+        <div class="scene-art art--carnival" aria-hidden="true"></div>
+        <div class="scene-veil scene-veil--pastel" aria-hidden="true"></div>
+        <article class="event-plaque event-plaque--carnival" aria-labelledby="carnival-title">
+          <p class="eyebrow">A garden of celebration</p>
+          <h2 id="carnival-title">Carnival</h2>
+          <div class="scratch-wrap" data-scratch>
+            <p class="scratch-content">22nd January 2027<br /><span>2pm</span></p>
+            <canvas class="scratch-canvas" aria-label="Scratch to reveal the Carnival date and time" tabindex="0"></canvas>
+          </div>
+        </article>
+      </section>
+
+      <section class="scene event-scene scene--sangeet" data-scene="5" aria-label="Sangeet celebration">
+        <div class="scene-art art--sangeet" aria-hidden="true"></div>
+        <div class="scene-veil scene-veil--night" aria-hidden="true"></div>
+        <article class="event-plaque event-plaque--sangeet" aria-labelledby="sangeet-title">
+          <p class="eyebrow">An evening in rhythm</p>
+          <h2 id="sangeet-title">Sangeet</h2>
+          <div class="scratch-wrap" data-scratch>
+            <p class="scratch-content">22nd January 2027<br /><span>From 7pm</span></p>
+            <canvas class="scratch-canvas" aria-label="Scratch to reveal the Sangeet date and time" tabindex="0"></canvas>
+          </div>
+        </article>
+      </section>
+
+      <section class="scene scene--vows" data-scene="6" aria-label="The sacred vows">
+        <div class="scene-art art--mandap" aria-hidden="true"></div>
+        <div class="scene-veil scene-veil--dusk" aria-hidden="true"></div>
+        <div class="vow-intro">
+          <p class="eyebrow">Two hearts, one journey</p>
+          <p>And so the sacred vows begin</p>
+        </div>
+      </section>
+
+      <section class="scene event-scene scene--pheras" data-scene="7" aria-label="Barat and Pheras">
+        <div class="scene-art art--ceremony-plaque" aria-hidden="true"></div>
+        <div class="scene-veil scene-veil--dusk" aria-hidden="true"></div>
+        <article class="event-plaque event-plaque--ceremony" aria-labelledby="ceremony-title">
+          <p class="eyebrow">The auspicious ceremony</p>
+          <h2 id="ceremony-title">Barat &amp; Pheras</h2>
+          <div class="scratch-wrap" data-scratch>
+            <p class="scratch-content">23rd January 2027<br /><span>From 7pm</span></p>
+            <canvas class="scratch-canvas" aria-label="Scratch to reveal the Barat and Pheras date and time" tabindex="0"></canvas>
+          </div>
+        </article>
+      </section>
+
+      <section class="scene scene--final" data-scene="8" aria-label="Wedding venue and blessings">
+        <div class="scene-art art--venue-plaque" aria-hidden="true"></div>
+        <div class="scene-veil scene-veil--final" aria-hidden="true"></div>
+        <article class="venue-plaque" aria-labelledby="venue-title">
+          <p class="eyebrow">With the blessings of elders</p>
+          <p class="final-wishes">The good wishes of friends &amp; family</p>
+          <h2 id="venue-title">Harsh <span>&amp;</span> Aayushi</h2>
+          <p class="closing-note">We embark on a new chapter of love, trust, and togetherness.</p>
+          <div class="venue-block"><strong>Venue</strong><span>Atharva Greens Resort</span><span>Rewa, MP</span></div>
+          <a class="location-link" href="https://www.google.com/maps/search/?api=1&amp;query=Atharva%20Greens%20Resort%2C%20Rewa%2C%20MP" target="_blank" rel="noopener noreferrer">Get directions <span aria-hidden="true">↗</span></a>
+        </article>
+      </section>
+
+      <nav class="story-navigation" aria-label="Invitation scenes">
+        <button class="nav-arrow nav-arrow--previous" type="button" data-previous aria-label="Previous scene">↑</button>
+        <div class="scene-dots" role="tablist" aria-label="Jump to a scene">
+          <button type="button" role="tab" aria-label="Opening" aria-selected="true" data-go="0"></button>
+          <button type="button" role="tab" aria-label="Blessings" aria-selected="false" data-go="1"></button>
+          <button type="button" role="tab" aria-label="Invitation" aria-selected="false" data-go="2"></button>
+          <button type="button" role="tab" aria-label="Haldi" aria-selected="false" data-go="3"></button>
+          <button type="button" role="tab" aria-label="Carnival" aria-selected="false" data-go="4"></button>
+          <button type="button" role="tab" aria-label="Sangeet" aria-selected="false" data-go="5"></button>
+          <button type="button" role="tab" aria-label="Sacred vows" aria-selected="false" data-go="6"></button>
+          <button type="button" role="tab" aria-label="Barat and Pheras" aria-selected="false" data-go="7"></button>
+          <button type="button" role="tab" aria-label="Venue and blessings" aria-selected="false" data-go="8"></button>
+        </div>
+        <button class="nav-arrow nav-arrow--next" type="button" data-next aria-label="Next scene">↓</button>
+      </nav>
+      <p class="scroll-prompt" aria-hidden="true">Swipe to continue</p>
+    </main>
+  </body>
+</html>
