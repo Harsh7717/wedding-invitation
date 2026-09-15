@@ -556,6 +556,7 @@ h2 span {
   margin: 0 0 clamp(1rem, 2dvh, 1.2rem);
   color: #9d6b31;
   font-size: clamp(0.48rem, 1.05dvh, 0.65rem);
+  font-weight: 700;
   line-height: 1;
 }
 
@@ -565,7 +566,7 @@ h2 span {
   color: #7c2636;
   font-family: var(--script);
   font-size: clamp(2.55rem, 5.8dvh, 4.2rem);
-  font-weight: 400;
+  font-weight: 700;
   line-height: 0.9;
 }
 
@@ -656,8 +657,8 @@ h2 span {
 
 .event-plaque.event-plaque--carnival .scratch-wrap {
   width: min(74%, 10.75rem);
-  min-height: clamp(2rem, 3.6dvh, 2.3rem);
-  margin: 0.0rem auto 0;
+  min-height: clamp(1.05rem, 1.9dvh, 1.35rem);
+  margin: -0.55rem auto 0;
   border-radius: 50%;
   border: none;
   background: none;
@@ -774,6 +775,7 @@ h2 span {
   color: #722a37;
   font-family: var(--ornate);
   font-size: clamp(0.66rem, 1.35dvh, 0.82rem);
+  font-weight: 700;
   line-height: 1.24;
   letter-spacing: 0.035em;
   text-shadow: 0 0.08rem 0.75rem rgb(255 248 225 / 0.9);
@@ -845,6 +847,7 @@ h2 span {
   margin-bottom: 0.28rem;
   color: #9a6930;
   font-size: clamp(0.46rem, 0.9dvh, 0.58rem);
+  font-weight: 700;
 }
 
 .final-wishes {
@@ -852,7 +855,7 @@ h2 span {
   color: #70303b;
   font-size: clamp(0.75rem, 1.7dvh, 0.9rem);
   font-style: italic;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .venue-plaque h2 {
@@ -869,7 +872,7 @@ h2 span {
   margin: 0.42rem auto 0.65rem;
   font-size: clamp(0.62rem, 1.6dvh, 0.86rem);
   font-style: italic;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1.15;
 }
 
