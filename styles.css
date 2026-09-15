@@ -258,7 +258,7 @@ a:focus-visible {
 
 .door-stage {
   overflow: hidden;
-  background: #0d3c3a;
+  background: transparent;
   box-shadow: 0 0 4rem rgb(0 14 15 / 0.52);
   transform: translate(-50%, -50%);
 }
@@ -335,8 +335,8 @@ a:focus-visible {
 }
 
 .door-stage.is-opening .door-light {
-  width: 42%;
-  opacity: 0.92;
+  width: 2px;
+  opacity: 0;
 }
 
 .door-stage.is-opening .door-seal {
@@ -512,12 +512,15 @@ h2 span {
   font-style: italic;
 }
 
-/* Scene-matched upper plaques: the artwork supplies the physical plaque; this is typography only. */
+/* Scene-matched upper plaques: the artwork supplies the physical plaque; this is typography only.
+   The frame itself is min(100dvh, 177.68vw) tall, so the offset below must scale off that same
+   min() — a plain dvh clamp drifts out of the ivory field whenever the viewport becomes the
+   height-bound term instead of the width-bound one. */
 .event-plaque,
 .venue-plaque {
   position: absolute;
   z-index: 5;
-  top: calc(50% - min(50dvh, 88.84vw) + clamp(3.85rem, 10.6dvh, 6.75rem));
+  top: calc(50% - 0.63 * min(50dvh, 88.84vw));
   left: 50%;
   width: min(68vw, 38.25dvh);
   margin: 0;
@@ -573,10 +576,20 @@ h2 span {
 }
 
 /* These scenes use shallower painted plaques, so the whole reveal fits inside the ornament. */
-.event-plaque.event-plaque--haldi,
-.event-plaque.event-plaque--sangeet,
+.event-plaque.event-plaque--haldi {
+  top: calc(50% - 0.77 * min(50dvh, 88.84vw));
+  width: min(62vw, 35dvh);
+}
+
+/* The sangeet arch's ivory field starts noticeably lower than Haldi's, behind a deeper scalloped trim. */
+.event-plaque.event-plaque--sangeet {
+  top: calc(50% - 0.75 * min(50dvh, 88.84vw));
+  width: min(62vw, 35dvh);
+}
+
+/* The Barat & Pheras arch dips lower in the middle, so this plaque needs to sit further down to clear it. */
 .event-plaque.event-plaque--ceremony {
-  top: calc(50% - min(50dvh, 88.84vw) + clamp(3.8rem, 10.6dvh, 6.65rem));
+  top: calc(50% - 0.74 * min(50dvh, 88.84vw));
   width: min(62vw, 35dvh);
 }
 
@@ -600,21 +613,21 @@ h2 span {
   top: clamp(0.28rem, 0.55dvh, 0.38rem);
 }
 
-.event-plaque.event-plaque--haldi h2,
-.event-plaque.event-plaque--sangeet h2 {
+.event-plaque.event-plaque--haldi h2 {
   font-size: clamp(2.15rem, 4.7dvh, 3.15rem);
   line-height: 0.93;
+}
+
+/* Sangeet's ivory field is shallower than Haldi's, so its title needs the compact size too. */
+.event-plaque.event-plaque--sangeet h2 {
+  font-size: clamp(0.65rem, 3.9dvh, 2.5rem);
+  line-height: 0.94;
 }
 
 .event-plaque.event-plaque--sangeet .eyebrow,
 .event-plaque.event-plaque--sangeet h2 {
   position: relative;
   left: 0;
-}
-
-/* Keep the small Sangeet line inside the ivory field rather than the arch trim. */
-.event-plaque.event-plaque--sangeet .eyebrow {
-  top: clamp(0.42rem, 0.9dvh, 0.62rem);
 }
 
 .event-plaque.event-plaque--ceremony h2 {
@@ -627,7 +640,7 @@ h2 span {
 
 /* Carnival now uses the same compact, scene-integrated plaque treatment. */
 .event-plaque.event-plaque--carnival {
-  top: calc(50% - min(50dvh, 88.84vw) + clamp(3.95rem, 10.4dvh, 6.8rem));
+  top: calc(50% - 0.77 * min(50dvh, 88.84vw));
   width: min(62vw, 35dvh);
 }
 
@@ -642,17 +655,32 @@ h2 span {
 }
 
 .event-plaque.event-plaque--carnival .scratch-wrap {
-  width: min(66%, 14.25rem);
-  min-height: clamp(1.82rem, 3.4dvh, 2.15rem);
-  margin: clamp(0.15rem, 0.3dvh, 0.25rem) auto 0;
+  width: min(58%, 10.75rem);
+  min-height: clamp(2rem, 3.6dvh, 2.3rem);
+  margin: 0.0rem auto 0;
+  border-radius: 50%;
+  border: none;
+  background: none;
+  box-shadow: none;
+}
+
+/* No plate at all once revealed — just the text sitting on the plaque artwork itself. */
+.event-plaque.event-plaque--carnival .scratch-wrap::after {
+  border: none;
+  box-shadow: none;
 }
 
 .event-plaque.event-plaque--haldi .scratch-wrap,
 .event-plaque.event-plaque--sangeet .scratch-wrap,
 .event-plaque.event-plaque--ceremony .scratch-wrap {
   width: min(65%, 14.25rem);
-  min-height: clamp(2.2rem, 4.15dvh, 2.55rem);
+  min-height: clamp(1.2rem, 4.15dvh, 2.55rem);
   margin: clamp(0.35rem, 0.7dvh, 0.5rem) auto 0;
+}
+
+/* Sangeet's own gap, independent of Haldi/Ceremony above, so it can drop lower without moving them. */
+.event-plaque.event-plaque--sangeet .scratch-wrap {
+  margin-top: clamp(0.6rem, 1.15dvh, 0.85rem);
 }
 
 .event-plaque.event-plaque--haldi .scratch-content,
@@ -668,6 +696,18 @@ h2 span {
 .event-plaque.event-plaque--sangeet .scratch-content span,
 .event-plaque.event-plaque--ceremony .scratch-content span {
   margin-top: 0.1rem;
+}
+
+/* Narrower true-ellipse pill needs tighter, more inset text so nothing touches the curve. */
+.event-plaque.event-plaque--carnival .scratch-content {
+  padding: clamp(0.22rem, 0.4dvh, 0.3rem) 0.55rem clamp(0.14rem, 0.26dvh, 0.18rem);
+  font-size: clamp(0.5rem, 0.92dvh, 0.58rem);
+  line-height: 1.05;
+  white-space: nowrap;
+}
+
+.event-plaque.event-plaque--carnival .scratch-content span {
+  margin-top: 0.05rem;
 }
 
 .event-plaque--sangeet {
@@ -795,7 +835,7 @@ h2 span {
 }
 
 .venue-plaque {
-  top: calc(50% - min(50dvh, 88.84vw) + clamp(4.25rem, 8.6dvh, 5.65rem));
+  top: calc(50% - min(50dvh, 88.84vw) + clamp(8.0rem, 13.2dvh, 10rem));
   width: min(72vw, 40.5dvh);
   padding: 0;
   container-type: inline-size;
