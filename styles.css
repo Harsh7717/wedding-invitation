@@ -583,13 +583,13 @@ h2 span {
 
 /* The sangeet arch's ivory field starts noticeably lower than Haldi's, behind a deeper scalloped trim. */
 .event-plaque.event-plaque--sangeet {
-  top: calc(50% - 0.75 * min(50dvh, 88.84vw));
+  top: calc(50% - 0.78 * min(50dvh, 88.84vw));
   width: min(62vw, 35dvh);
 }
 
 /* The Barat & Pheras arch dips lower in the middle, so this plaque needs to sit further down to clear it. */
 .event-plaque.event-plaque--ceremony {
-  top: calc(50% - 0.74 * min(50dvh, 88.84vw));
+  top: calc(50% - 0.77 * min(50dvh, 88.84vw));
   width: min(62vw, 35dvh);
 }
 
@@ -603,7 +603,7 @@ h2 span {
 /* Let the tall calligraphy clear the small all-caps line on the two arched plaques. */
 .event-plaque.event-plaque--sangeet .eyebrow,
 .event-plaque.event-plaque--ceremony .eyebrow {
-  margin-bottom: clamp(0.72rem, 1.35dvh, 0.94rem);
+  margin-bottom: clamp(0.5rem, 1dvh, 0.7rem);
 }
 
 /* Optical centering: script capitals rise above their line box, so nudge the titles down. */
@@ -680,7 +680,7 @@ h2 span {
 
 /* Sangeet's own gap, independent of Haldi/Ceremony above, so it can drop lower without moving them. */
 .event-plaque.event-plaque--sangeet .scratch-wrap {
-  margin-top: clamp(0.6rem, 1.15dvh, 0.85rem);
+  margin-top: clamp(0.3rem, 0.6dvh, 0.45rem);
 }
 
 .event-plaque.event-plaque--haldi .scratch-content,
