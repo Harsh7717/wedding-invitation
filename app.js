@@ -1,7 +1,6 @@
 (() => {
   "use strict";
 
-  const story = document.querySelector("#story");
   const scenes = [...document.querySelectorAll("[data-scene]")];
   const dots = [...document.querySelectorAll("[data-go]")];
   const previousButton = document.querySelector("[data-previous]");
@@ -13,13 +12,37 @@
   const totalScenes = scenes.length;
   let currentScene = 0;
   let introStarted = false;
-  let wheelLocked = false;
-  let touchStartY = 0;
-  let autoTimers = [];
+  let scrollAnimationFrame = null;
 
-  function clearAutoplay() {
-    autoTimers.forEach((timer) => window.clearTimeout(timer));
-    autoTimers = [];
+  function maxScrollY() {
+    return document.documentElement.scrollHeight - window.innerHeight;
+  }
+
+  function targetYFor(targetEl, isLast) {
+    if (isLast) return maxScrollY();
+    return Math.min(targetEl.getBoundingClientRect().top + window.scrollY, maxScrollY());
+  }
+
+  function animateScrollTo(targetEl, isLast) {
+    if (scrollAnimationFrame) cancelAnimationFrame(scrollAnimationFrame);
+    const startY = window.scrollY;
+    const delta = targetYFor(targetEl, isLast) - startY;
+    if (Math.abs(delta) < 1) return;
+    const duration = Math.min(1400, Math.max(500, Math.abs(delta) * 0.45));
+    const startTime = performance.now();
+
+    function step(now) {
+      const t = Math.min(1, (now - startTime) / duration);
+      const eased = 1 - Math.pow(1 - t, 3);
+      // Recompute the live target each frame: dvh (and thus document height) can
+      // shift slightly while a scroll is in progress, so a target frozen at the
+      // start would drift stale by the time the animation finishes.
+      const liveDelta = targetYFor(targetEl, isLast) - startY;
+      window.scrollTo({ top: startY + liveDelta * eased, left: 0, behavior: "instant" });
+      scrollAnimationFrame = t < 1 ? requestAnimationFrame(step) : null;
+    }
+
+    scrollAnimationFrame = requestAnimationFrame(step);
   }
 
   function updateNavigation() {
@@ -30,33 +53,19 @@
     });
     previousButton.disabled = currentScene === 0;
     nextButton.disabled = !introStarted || currentScene === totalScenes - 1;
-    scrollPrompt.hidden = currentScene === totalScenes - 1;
+    scrollPrompt.hidden = !introStarted || currentScene === totalScenes - 1;
   }
 
-  function updateSceneAccessibility() {
-    scenes.forEach((scene, index) => {
-      const active = index === currentScene;
-      scene.setAttribute("aria-hidden", String(!active));
-      scene.inert = !active;
-    });
-  }
-
-  function goTo(sceneIndex, options = {}) {
-    const manual = options.manual !== false;
+  function scrollToScene(sceneIndex) {
     const nextIndex = Math.max(0, Math.min(totalScenes - 1, Number(sceneIndex)));
-    if (!introStarted && currentScene === 0 && nextIndex > 0) return;
-    if (nextIndex === currentScene) return;
-    if (manual) clearAutoplay();
-
-    const outgoing = scenes[currentScene];
-    const incoming = scenes[nextIndex];
-    outgoing.classList.remove("is-active");
-    outgoing.classList.add("is-leaving");
-    incoming.classList.add("is-active");
-    currentScene = nextIndex;
-    updateSceneAccessibility();
-    updateNavigation();
-    window.setTimeout(() => outgoing.classList.remove("is-leaving"), 900);
+    if (!introStarted && nextIndex > 0) return;
+    const target = scenes[nextIndex];
+    const isLast = nextIndex === totalScenes - 1;
+    if (prefersReducedMotion) {
+      window.scrollTo({ top: targetYFor(target, isLast), left: 0, behavior: "instant" });
+    } else {
+      animateScrollTo(target, isLast);
+    }
   }
 
   function startIntro() {
@@ -64,86 +73,40 @@
     introStarted = true;
     if (openingButton) openingButton.disabled = true;
     if (doorStage) doorStage.classList.add("is-opening");
+    document.documentElement.classList.add("is-unlocked");
     updateNavigation();
-
-    if (prefersReducedMotion) {
-      goTo(1, { manual: false });
-      return;
-    }
-
-    autoTimers = [
-      window.setTimeout(() => goTo(1, { manual: false }), 1650),
-      window.setTimeout(() => goTo(2, { manual: false }), 5750),
-      window.setTimeout(() => goTo(3, { manual: false }), 9950),
-      window.setTimeout(() => goTo(4, { manual: false }), 14450),
-      window.setTimeout(() => goTo(5, { manual: false }), 19150),
-      window.setTimeout(() => goTo(6, { manual: false }), 24050),
-      window.setTimeout(() => goTo(7, { manual: false }), 28750),
-      window.setTimeout(() => goTo(8, { manual: false }), 35050),
-    ];
-  }
-
-  function isInteractiveTarget(target) {
-    return Boolean(target.closest("button, a, canvas, [data-scratch]"));
+    window.setTimeout(() => scrollToScene(1), prefersReducedMotion ? 0 : 1650);
   }
 
   function installNavigation() {
     openingButton?.addEventListener("click", startIntro);
-    previousButton.addEventListener("click", () => goTo(currentScene - 1));
-    nextButton.addEventListener("click", () => goTo(currentScene + 1));
-    dots.forEach((dot) => dot.addEventListener("click", () => goTo(dot.dataset.go)));
+    previousButton.addEventListener("click", () => scrollToScene(currentScene - 1));
+    nextButton.addEventListener("click", () => scrollToScene(currentScene + 1));
+    dots.forEach((dot) => dot.addEventListener("click", () => scrollToScene(dot.dataset.go)));
+  }
 
-    story.addEventListener(
-      "wheel",
-      (event) => {
-        if (wheelLocked || Math.abs(event.deltaY) < 26 || isInteractiveTarget(event.target)) return;
-        event.preventDefault();
-        wheelLocked = true;
-        goTo(currentScene + (event.deltaY > 0 ? 1 : -1));
-        window.setTimeout(() => {
-          wheelLocked = false;
-        }, 760);
+  function installSceneObserver() {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add("in-view");
+        });
+
+        let mostVisible = null;
+        entries.forEach((entry) => {
+          if (!mostVisible || entry.intersectionRatio > mostVisible.intersectionRatio) mostVisible = entry;
+        });
+        if (mostVisible && mostVisible.intersectionRatio > 0) {
+          const index = scenes.indexOf(mostVisible.target);
+          if (index !== -1 && index !== currentScene) {
+            currentScene = index;
+            updateNavigation();
+          }
+        }
       },
-      { passive: false },
+      { threshold: [0, 0.2, 0.4, 0.6, 0.8, 1] },
     );
-
-    story.addEventListener(
-      "touchstart",
-      (event) => {
-        if (!isInteractiveTarget(event.target)) touchStartY = event.touches[0].clientY;
-      },
-      { passive: true },
-    );
-
-    story.addEventListener(
-      "touchend",
-      (event) => {
-        if (!touchStartY || isInteractiveTarget(event.target)) return;
-        const delta = event.changedTouches[0].clientY - touchStartY;
-        touchStartY = 0;
-        if (Math.abs(delta) < 46) return;
-        goTo(currentScene + (delta < 0 ? 1 : -1));
-      },
-      { passive: true },
-    );
-
-    window.addEventListener("keydown", (event) => {
-      if (event.metaKey || event.ctrlKey || event.altKey || isInteractiveTarget(event.target)) return;
-      const key = event.key;
-      if (key === "ArrowDown" || key === "PageDown") {
-        event.preventDefault();
-        goTo(currentScene + 1);
-      } else if (key === "ArrowUp" || key === "PageUp") {
-        event.preventDefault();
-        goTo(currentScene - 1);
-      } else if (key === "Home") {
-        event.preventDefault();
-        goTo(0);
-      } else if (key === "End") {
-        event.preventDefault();
-        goTo(totalScenes - 1);
-      }
-    });
+    scenes.forEach((scene) => observer.observe(scene));
   }
 
   function installScratchCards() {
@@ -294,8 +257,8 @@
     });
   }
 
-  updateSceneAccessibility();
   updateNavigation();
   installScratchCards();
   installNavigation();
+  installSceneObserver();
 })();

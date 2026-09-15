@@ -16,19 +16,21 @@
   box-sizing: border-box;
 }
 
-html,
-body {
+html {
   width: 100%;
-  height: 100%;
-  min-height: 100svh;
-  min-height: 100dvh;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+html.is-unlocked {
+  overflow-y: auto;
 }
 
 body {
+  width: 100%;
+  min-height: 100svh;
+  min-height: 100dvh;
   margin: 0;
-  display: grid;
-  place-items: center;
   color: var(--ink);
   background: var(--deep-emerald);
   font-family: var(--serif);
@@ -62,54 +64,35 @@ a:focus-visible {
 .story {
   position: relative;
   width: 100%;
-  height: 100svh;
-  height: 100dvh;
-  overflow: hidden;
   isolation: isolate;
 }
 
 .scene {
-  position: absolute;
+  position: relative;
   z-index: 0;
-  inset: 0;
+  width: 100%;
+  height: 100svh;
+  height: 100dvh;
   display: grid;
   place-items: center;
   overflow: hidden;
   opacity: 0;
-  visibility: hidden;
   pointer-events: none;
   transform: scale(1.028);
   filter: blur(4px) brightness(1.08);
   transition:
     opacity 820ms ease,
     transform 1150ms cubic-bezier(0.18, 0.76, 0.24, 1),
-    filter 750ms ease,
-    visibility 0s linear 950ms;
+    filter 750ms ease;
 }
 
-.scene::after {
-  position: absolute;
-  z-index: 20;
-  inset: 0;
-  content: "";
-  pointer-events: none;
-  background: radial-gradient(circle at 50% 50%, transparent 18%, rgb(255 248 225 / 0.2) 63%, rgb(255 255 255 / 0.72));
-  opacity: 0;
-  transition: opacity 560ms ease;
-}
-
-.scene.is-active {
+.scene.in-view {
   z-index: 2;
-  visibility: visible;
   pointer-events: auto;
   opacity: 1;
   transform: scale(1);
   filter: none;
   transition-delay: 0s;
-}
-
-.scene.is-leaving::after {
-  opacity: 1;
 }
 
 .scene-art,
@@ -134,7 +117,7 @@ a:focus-visible {
   transition: transform 7s ease-out;
 }
 
-.scene.is-active .scene-art {
+.scene.in-view .scene-art {
   transform: translate(-50%, -50%) scale(1.026);
 }
 
@@ -161,7 +144,7 @@ a:focus-visible {
   transition: none;
 }
 
-.scene.is-active .art--ganesha-background {
+.scene.in-view .art--ganesha-background {
   transform: translate(-50%, -50%) scale(1);
 }
 
@@ -175,7 +158,7 @@ a:focus-visible {
   will-change: transform;
 }
 
-.scene.is-active .ganesha-swing {
+.scene.in-view .ganesha-swing {
   animation: ganeshaSwing 5.2s 280ms cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
 }
 
@@ -415,7 +398,7 @@ a:focus-visible {
   text-align: center;
 }
 
-.scene.is-active .vow-intro {
+.scene.in-view .vow-intro {
   animation: cardEnter 1050ms 130ms cubic-bezier(0.17, 0.83, 0.24, 1) both;
 }
 
@@ -533,8 +516,8 @@ h2 span {
   transform: translateX(-50%);
 }
 
-.scene.is-active .event-plaque,
-.scene.is-active .venue-plaque {
+.scene.in-view .event-plaque,
+.scene.in-view .venue-plaque {
   animation: plaqueEnter 850ms 120ms cubic-bezier(0.17, 0.83, 0.24, 1) both;
 }
 
@@ -651,7 +634,7 @@ h2 span {
 }
 
 .event-plaque.event-plaque--carnival h2 {
-  font-size: clamp(1.9rem, 3.8dvh, 2.55rem);
+  font-size: clamp(1.55rem, 3.1dvh, 2.1rem);
   line-height: 0.92;
 }
 
@@ -681,7 +664,7 @@ h2 span {
 
 /* Sangeet's own gap, independent of Haldi/Ceremony above, so it can drop lower without moving them. */
 .event-plaque.event-plaque--sangeet .scratch-wrap {
-  margin-top: clamp(0.3rem, 0.6dvh, 0.45rem);
+  margin-top: clamp(0.48rem, 0.9dvh, 0.68rem);
 }
 
 .event-plaque.event-plaque--haldi .scratch-content,
@@ -837,31 +820,31 @@ h2 span {
 }
 
 .venue-plaque {
-  top: calc(50% - min(50dvh, 88.84vw) + clamp(8.0rem, 13.2dvh, 10rem));
+  top: calc(50% - min(50dvh, 88.84vw) + clamp(4.5rem, 8.9dvh, 6.7rem));
   width: min(72vw, 40.5dvh);
   padding: 0;
   container-type: inline-size;
 }
 
 .venue-plaque .eyebrow {
-  margin-bottom: 0.28rem;
+  margin-bottom: 0.22rem;
   color: #9a6930;
-  font-size: clamp(0.46rem, 0.9dvh, 0.58rem);
+  font-size: clamp(0.4rem, 0.78dvh, 0.5rem);
   font-weight: 700;
 }
 
 .final-wishes {
-  margin: 0.18rem auto;
+  margin: 0.14rem auto;
   color: #70303b;
-  font-size: clamp(0.75rem, 1.7dvh, 0.9rem);
+  font-size: clamp(0.64rem, 1.4dvh, 0.78rem);
   font-style: italic;
   font-weight: 700;
 }
 
 .venue-plaque h2 {
-  margin: 0.12rem 0 0.25rem;
+  margin: 0.1rem 0 0.2rem;
   max-inline-size: 100%;
-  font-size: clamp(1.3rem, 11.5cqi, 3rem);
+  font-size: clamp(1.1rem, 9.8cqi, 2.55rem);
   line-height: 0.92;
   letter-spacing: -0.02em;
   white-space: normal;
@@ -869,8 +852,8 @@ h2 span {
 
 .closing-note {
   max-width: 90%;
-  margin: 0.42rem auto 0.65rem;
-  font-size: clamp(0.62rem, 1.6dvh, 0.86rem);
+  margin: 0.22rem auto 0.32rem;
+  font-size: clamp(0.54rem, 1.3dvh, 0.7rem);
   font-style: italic;
   font-weight: 700;
   line-height: 1.15;
@@ -878,15 +861,15 @@ h2 span {
 
 .venue-block {
   display: grid;
-  gap: 0.1rem;
-  padding-top: 0.5rem;
+  gap: 0.05rem;
+  padding-top: 0.26rem;
   border-top: 1px solid rgb(174 123 55 / 0.38);
 }
 
 .venue-block strong {
   color: #9f6e2d;
   font-family: var(--ornate);
-  font-size: 0.64rem;
+  font-size: 0.56rem;
   letter-spacing: 0.11em;
   text-transform: uppercase;
 }
@@ -924,7 +907,7 @@ h2 span {
 
 /* Quiet manual navigation */
 .story-navigation {
-  position: absolute;
+  position: fixed;
   z-index: 40;
   right: max(0.8rem, 2vw);
   bottom: max(0.8rem, 2vh);
@@ -993,7 +976,7 @@ h2 span {
 }
 
 .scroll-prompt {
-  position: absolute;
+  position: fixed;
   z-index: 30;
   bottom: max(1rem, 2.3vh);
   left: 50%;
@@ -1035,10 +1018,6 @@ h2 span {
 
 /* Portrait phones use the artwork's native 9:16 composition. */
 @media (max-width: 520px) and (orientation: portrait) {
-  .story {
-    min-height: 100dvh;
-  }
-
   .scene-art {
     background-position: center center;
     background-size: 100% 100%;
@@ -1109,15 +1088,15 @@ h2 span {
   .final-wishes,
   .closing-note,
   .venue-block span {
-    font-size: clamp(0.78rem, 3.2vw, 0.9rem);
+    font-size: clamp(0.66rem, 2.6vw, 0.78rem);
   }
 
   .closing-note {
-    margin: 0.65rem auto 0.75rem;
+    margin: 0.22rem auto 0.32rem;
   }
 
   .venue-plaque .venue-block {
-    padding-top: 0.5rem;
+    padding-top: 0.26rem;
   }
 
   .venue-plaque .location-link {
@@ -1140,6 +1119,10 @@ h2 span {
 @media (max-width: 900px) and (orientation: landscape) {
   .story {
     width: min(100vw, calc(100dvh * 16 / 9));
+    margin: 0 auto;
+  }
+
+  .scene {
     height: min(100dvh, calc(100vw * 9 / 16));
     aspect-ratio: 16 / 9;
   }
