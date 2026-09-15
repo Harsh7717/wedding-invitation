@@ -620,6 +620,14 @@ h2 span {
   letter-spacing: -0.03em;
 }
 
+/* The pediment above Barat & Pheras' cream cartouche is too narrow at its tip for the
+   eyebrow's width; nudge it down into the cartouche without disturbing the title below,
+   since relative offsets don't reflow following siblings. */
+.event-plaque.event-plaque--ceremony .eyebrow {
+  position: relative;
+  top: clamp(0.55rem, 1.1dvh, 0.75rem);
+}
+
 /* Carnival now uses the same compact, scene-integrated plaque treatment. */
 .event-plaque.event-plaque--carnival {
   top: calc(50% - 0.77 * min(50dvh, 88.84vw));
@@ -639,7 +647,7 @@ h2 span {
 .event-plaque.event-plaque--carnival .scratch-wrap {
   width: min(74%, 10.75rem);
   min-height: clamp(1.05rem, 1.9dvh, 1.35rem);
-  margin: -0.55rem auto 0;
+  margin: clamp(0.4rem, 0.8dvh, 0.55rem) auto 0;
 }
 
 .event-plaque.event-plaque--haldi .scratch-wrap,
@@ -712,19 +720,11 @@ h2 span {
 
 .scratch-wrap {
   position: relative;
-  isolation: isolate;
   min-height: clamp(4.2rem, 10vw, 5.2rem);
   margin: 1rem auto 0.35rem;
-  overflow: hidden;
-  border-radius: 50%;
-  border: none;
-  background: none;
-  box-shadow: none;
 }
 
 .scratch-content {
-  position: relative;
-  z-index: 1;
   display: grid;
   min-height: inherit;
   place-content: center;
@@ -746,23 +746,6 @@ h2 span {
   font-style: italic;
   font-weight: 700;
   letter-spacing: 0;
-}
-
-.scratch-canvas {
-  position: absolute;
-  z-index: 2;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: inherit;
-  cursor: crosshair;
-  touch-action: none;
-  transition: opacity 550ms ease;
-}
-
-.scratch-wrap.is-revealed .scratch-canvas {
-  pointer-events: none;
-  opacity: 0;
 }
 
 /* Ceremony closing */
