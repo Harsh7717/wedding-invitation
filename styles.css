@@ -565,13 +565,13 @@ h2 span {
 
 /* The sangeet arch's ivory field starts noticeably lower than Haldi's, behind a deeper scalloped trim. */
 .event-plaque.event-plaque--sangeet {
-  top: calc(50% - 0.78 * min(50dvh, 88.84vw));
+  top: calc(50% - 0.765 * min(50dvh, 88.84vw));
   width: min(62vw, 35dvh);
 }
 
 /* The Barat & Pheras arch dips lower in the middle, so this plaque needs to sit further down to clear it. */
 .event-plaque.event-plaque--ceremony {
-  top: calc(50% - 0.77 * min(50dvh, 88.84vw));
+  top: calc(50% - 0.72 * min(50dvh, 88.84vw));
   width: min(62vw, 35dvh);
 }
 
@@ -647,15 +647,21 @@ h2 span {
 .event-plaque.event-plaque--carnival .scratch-wrap {
   width: min(74%, 10.75rem);
   min-height: clamp(1.05rem, 1.9dvh, 1.35rem);
-  margin: clamp(0.4rem, 0.8dvh, 0.55rem) auto 0;
+  margin: clamp(0.15rem, 0.35dvh, 0.25rem) auto 0;
 }
 
-.event-plaque.event-plaque--haldi .scratch-wrap,
 .event-plaque.event-plaque--sangeet .scratch-wrap,
 .event-plaque.event-plaque--ceremony .scratch-wrap {
   width: min(78%, 14.25rem);
   min-height: clamp(1.2rem, 4.15dvh, 2.55rem);
   margin: clamp(0.35rem, 0.7dvh, 0.5rem) auto 0;
+}
+
+/* Haldi's date/time is a single line now, so it sits close under the title. */
+.event-plaque.event-plaque--haldi .scratch-wrap {
+  width: min(78%, 14.25rem);
+  min-height: clamp(1.05rem, 1.9dvh, 1.35rem);
+  margin: clamp(0.1rem, 0.25dvh, 0.2rem) auto 0;
 }
 
 /* Sangeet's own gap, independent of Haldi/Ceremony above, so it can drop lower without moving them. */
@@ -672,22 +678,12 @@ h2 span {
   line-height: 1.12;
 }
 
-.event-plaque.event-plaque--haldi .scratch-content span,
-.event-plaque.event-plaque--sangeet .scratch-content span,
-.event-plaque.event-plaque--ceremony .scratch-content span {
-  margin-top: 0.1rem;
-}
-
 /* Narrower true-ellipse pill needs tighter, more inset text so nothing touches the curve. */
 .event-plaque.event-plaque--carnival .scratch-content {
   padding: clamp(0.22rem, 0.4dvh, 0.3rem) 0.4rem clamp(0.14rem, 0.26dvh, 0.18rem);
   font-size: clamp(0.42rem, 0.92dvh, 0.58rem);
   line-height: 1.05;
   white-space: nowrap;
-}
-
-.event-plaque.event-plaque--carnival .scratch-content span {
-  margin-top: 0.05rem;
 }
 
 .event-plaque--sangeet {
@@ -702,10 +698,6 @@ h2 span {
 .event-plaque--sangeet .scratch-content {
   color: #722a37;
   background: transparent;
-}
-
-.event-plaque--sangeet .scratch-content span {
-  color: #9e6f2b;
 }
 
 .event-copy {
@@ -736,16 +728,6 @@ h2 span {
   line-height: 1.24;
   letter-spacing: 0.035em;
   text-shadow: 0 0.08rem 0.75rem rgb(255 248 225 / 0.9);
-}
-
-.scratch-content span {
-  margin-top: 0.24rem;
-  color: #9e6f2b;
-  font-family: var(--serif);
-  font-size: 1.3em;
-  font-style: italic;
-  font-weight: 700;
-  letter-spacing: 0;
 }
 
 /* Ceremony closing */
