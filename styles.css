@@ -588,6 +588,11 @@ h2 span {
   margin-bottom: clamp(0.5rem, 1dvh, 0.7rem);
 }
 
+/* Barat & Pheras: more breathing room between the eyebrow and the title. */
+.event-plaque.event-plaque--ceremony .eyebrow {
+  margin-bottom: clamp(0.85rem, 1.7dvh, 1.1rem);
+}
+
 /* Optical centering: script capitals rise above their line box, so nudge the titles down. */
 .event-plaque.event-plaque--sangeet h2,
 .event-plaque.event-plaque--ceremony h2 {
@@ -655,6 +660,11 @@ h2 span {
   width: min(78%, 14.25rem);
   min-height: clamp(1.2rem, 4.15dvh, 2.55rem);
   margin: clamp(0.1rem, 0.25dvh, 0.2rem) auto 0;
+}
+
+/* Barat & Pheras: tighten the gap to the date/time line now that the eyebrow has more room above. */
+.event-plaque.event-plaque--ceremony .scratch-wrap {
+  margin-top: clamp(0.02rem, 0.05dvh, 0.08rem);
 }
 
 /* Haldi's date/time is a single line now, so it sits close under the title. */
