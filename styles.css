@@ -129,10 +129,6 @@ a:focus-visible {
   transform: translate(-50%, -50%);
 }
 
-.scene--blessings {
-  background: #cfb27d;
-  transition-duration: 500ms, 340ms;
-}
 .scene--haldi { background: #c38834; }
 .scene--carnival { background: #6f7e9f; }
 .scene--sangeet { background: #241d54; }
@@ -148,10 +144,6 @@ a:focus-visible {
 
 .scene.in-view .art--ganesha-background {
   transform: translate(-50%, -50%) scale(1);
-}
-
-.art--ganesha-arch {
-  background-image: url("./assets/ganesha-arch.png?v=1");
 }
 
 .ganesha-swing {
