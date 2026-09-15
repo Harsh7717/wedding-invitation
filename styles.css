@@ -571,7 +571,7 @@ h2 span {
 
 /* The Barat & Pheras arch dips lower in the middle, so this plaque needs to sit further down to clear it. */
 .event-plaque.event-plaque--ceremony {
-  top: calc(50% - 0.72 * min(50dvh, 88.84vw));
+  top: calc(50% - 0.75 * min(50dvh, 88.84vw));
   width: min(62vw, 35dvh);
 }
 
@@ -664,7 +664,7 @@ h2 span {
 
 /* Barat & Pheras: tighten the gap to the date/time line now that the eyebrow has more room above. */
 .event-plaque.event-plaque--ceremony .scratch-wrap {
-  margin-top: clamp(0.02rem, 0.05dvh, 0.08rem);
+  margin-top: 0;
 }
 
 /* Haldi's date/time is a single line now, so it sits close under the title. */
