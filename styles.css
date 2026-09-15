@@ -655,7 +655,7 @@ h2 span {
 }
 
 .event-plaque.event-plaque--carnival .scratch-wrap {
-  width: min(58%, 10.75rem);
+  width: min(74%, 10.75rem);
   min-height: clamp(2rem, 3.6dvh, 2.3rem);
   margin: 0.0rem auto 0;
   border-radius: 50%;
@@ -673,7 +673,7 @@ h2 span {
 .event-plaque.event-plaque--haldi .scratch-wrap,
 .event-plaque.event-plaque--sangeet .scratch-wrap,
 .event-plaque.event-plaque--ceremony .scratch-wrap {
-  width: min(65%, 14.25rem);
+  width: min(78%, 14.25rem);
   min-height: clamp(1.2rem, 4.15dvh, 2.55rem);
   margin: clamp(0.35rem, 0.7dvh, 0.5rem) auto 0;
 }
@@ -687,8 +687,8 @@ h2 span {
 .event-plaque.event-plaque--sangeet .scratch-content,
 .event-plaque.event-plaque--ceremony .scratch-content,
 .event-plaque.event-plaque--carnival .scratch-content {
-  padding: clamp(0.28rem, 0.5dvh, 0.36rem) 0.5rem clamp(0.16rem, 0.28dvh, 0.22rem);
-  font-size: clamp(0.6rem, 1.1dvh, 0.7rem);
+  padding: clamp(0.28rem, 0.5dvh, 0.36rem) 0.36rem clamp(0.16rem, 0.28dvh, 0.22rem);
+  font-size: clamp(0.5rem, 1.1dvh, 0.7rem);
   line-height: 1.12;
 }
 
@@ -700,8 +700,8 @@ h2 span {
 
 /* Narrower true-ellipse pill needs tighter, more inset text so nothing touches the curve. */
 .event-plaque.event-plaque--carnival .scratch-content {
-  padding: clamp(0.22rem, 0.4dvh, 0.3rem) 0.55rem clamp(0.14rem, 0.26dvh, 0.18rem);
-  font-size: clamp(0.5rem, 0.92dvh, 0.58rem);
+  padding: clamp(0.22rem, 0.4dvh, 0.3rem) 0.4rem clamp(0.14rem, 0.26dvh, 0.18rem);
+  font-size: clamp(0.42rem, 0.92dvh, 0.58rem);
   line-height: 1.05;
   white-space: nowrap;
 }
@@ -858,20 +858,19 @@ h2 span {
 .venue-plaque h2 {
   margin: 0.12rem 0 0.25rem;
   max-inline-size: 100%;
-  font-size: clamp(1.8rem, 4.8dvh, 3rem);
-  font-size: clamp(1.8rem, 11.5cqi, 3rem);
+  font-size: clamp(1.3rem, 11.5cqi, 3rem);
   line-height: 0.92;
   letter-spacing: -0.02em;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .closing-note {
-  max-width: 17.5rem;
+  max-width: 90%;
   margin: 0.42rem auto 0.65rem;
-  font-size: clamp(0.74rem, 1.6dvh, 0.86rem);
+  font-size: clamp(0.62rem, 1.6dvh, 0.86rem);
   font-style: italic;
   font-weight: 600;
-  line-height: 1.1;
+  line-height: 1.15;
 }
 
 .venue-block {
