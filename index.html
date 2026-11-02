@@ -1,136 +1,200 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <meta name="theme-color" content="#103e3c" />
-    <meta name="description" content="An animated wedding invitation for Harsh and Aayushi — 22 and 23 January 2027." />
-    <title>Harsh &amp; Aayushi — Wedding Invitation</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Great+Vibes&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="./styles.css?v=baked-scenes-48" />
-    <script src="./app.js?v=baked-scenes-48" defer></script>
-  </head>
-  <body>
-    <main class="story" id="story" aria-label="Harsh and Aayushi's wedding invitation">
-      <section class="scene scene--doors in-view" data-scene="0" aria-label="Opening peacock doors">
-        <div class="scene-art art--ganesha-background" aria-hidden="true"></div>
-        <div class="ganesha-swing" aria-hidden="true"></div>
-        <div class="door-stage" aria-hidden="true">
-          <div class="door-leaf door-leaf--left"></div>
-          <div class="door-leaf door-leaf--right"></div>
-          <div class="door-light"></div>
-          <div class="door-seal"></div>
-        </div>
-        <p class="door-prompt" aria-hidden="true">Touch the lotus seal</p>
-        <button class="door-open-control" type="button" data-open>
-          <span class="visually-hidden">Touch the peacock doors to open the invitation</span>
-        </button>
-      </section>
-
-      <section class="scene scene--invitation" data-scene="1" aria-label="Wedding invitation">
-        <div class="scene-art art--invitation" aria-hidden="true"></div>
-        <article class="invite-sign-copy">
-          <p class="eyebrow">Wedding invitation</p>
-          <h1>Harsh <span>&amp;</span> Aayushi</h1>
-          <p class="invite-copy">Together with their families, invite you to celebrate their wedding festivities.</p>
-          <div class="detail-grid">
-            <p><strong>22nd &amp; 23rd January</strong><span>2027</span></p>
-            <p><strong>Atharva Greens Resort</strong><span>Rewa, MP</span></p>
-          </div>
-        </article>
-      </section>
-
-      <section class="scene event-scene scene--haldi" data-scene="2" aria-label="Haldi celebration">
-        <div class="scene-art art--haldi" aria-hidden="true"></div>
-        <div class="scene-veil scene-veil--sunny" aria-hidden="true"></div>
-        <article class="event-plaque event-plaque--haldi" aria-labelledby="haldi-title">
-          <p class="eyebrow">A sunlit celebration</p>
-          <h2 id="haldi-title">Haldi</h2>
-          <div class="scratch-wrap">
-            <p class="scratch-content">22nd January 2027 · 12pm</p>
-          </div>
-        </article>
-        <div class="scratch-mask scratch-mask--haldi" data-scratch-mask="haldi" aria-hidden="true"><canvas></canvas></div>
-      </section>
-
-      <section class="scene event-scene scene--carnival" data-scene="3" aria-label="Carnival celebration">
-        <div class="scene-art art--carnival" aria-hidden="true"></div>
-        <div class="scene-veil scene-veil--pastel" aria-hidden="true"></div>
-        <article class="event-plaque event-plaque--carnival" aria-labelledby="carnival-title">
-          <p class="eyebrow">A garden of celebration</p>
-          <h2 id="carnival-title">Carnival</h2>
-          <div class="scratch-wrap">
-            <p class="scratch-content">22nd January 2027 · 2PM</p>
-          </div>
-        </article>
-        <div class="scratch-mask scratch-mask--carnival" data-scratch-mask="carnival" aria-hidden="true"><canvas></canvas></div>
-      </section>
-
-      <section class="scene event-scene scene--sangeet" data-scene="4" aria-label="Sangeet celebration">
-        <div class="scene-art art--sangeet" aria-hidden="true"></div>
-        <div class="scene-veil scene-veil--night" aria-hidden="true"></div>
-        <article class="event-plaque event-plaque--sangeet" aria-labelledby="sangeet-title">
-          <p class="eyebrow">An evening in rhythm</p>
-          <h2 id="sangeet-title">Sangeet</h2>
-          <div class="scratch-wrap">
-            <p class="scratch-content">22nd January 2027 · From 7pm</p>
-          </div>
-        </article>
-        <div class="scratch-mask scratch-mask--sangeet" data-scratch-mask="sangeet" aria-hidden="true"><canvas></canvas></div>
-      </section>
-
-      <section class="scene scene--vows" data-scene="5" aria-label="The sacred vows">
-        <div class="scene-art art--mandap" aria-hidden="true"></div>
-        <div class="scene-veil scene-veil--dusk" aria-hidden="true"></div>
-        <div class="vow-intro">
-          <p class="eyebrow">Two hearts, one journey</p>
-          <p>And so the sacred vows begin</p>
-        </div>
-      </section>
-
-      <section class="scene event-scene scene--pheras" data-scene="6" aria-label="Barat and Pheras">
-        <div class="scene-art art--ceremony-plaque" aria-hidden="true"></div>
-        <div class="scene-veil scene-veil--dusk" aria-hidden="true"></div>
-        <article class="event-plaque event-plaque--ceremony" aria-labelledby="ceremony-title">
-          <p class="eyebrow">The auspicious ceremony</p>
-          <h2 id="ceremony-title">Barat &amp; Pheras</h2>
-          <div class="scratch-wrap">
-            <p class="scratch-content">23rd January 2027 · From 7pm</p>
-          </div>
-        </article>
-        <div class="scratch-mask scratch-mask--ceremony" data-scratch-mask="ceremony" aria-hidden="true"><canvas></canvas></div>
-      </section>
-
-      <section class="scene scene--final" data-scene="7" aria-label="Wedding venue and blessings">
-        <div class="scene-art art--venue-plaque" aria-hidden="true"></div>
-        <div class="scene-veil scene-veil--final" aria-hidden="true"></div>
-        <article class="venue-plaque" aria-labelledby="venue-title">
-          <p class="eyebrow">With the blessings of elders</p>
-          <p class="final-wishes">The good wishes of friends &amp; family</p>
-          <h2 id="venue-title">Harsh <span>&amp;</span> Aayushi</h2>
-          <p class="closing-note">We embark on a new chapter of love, trust, and togetherness.</p>
-          <div class="venue-block"><strong>Venue</strong><span>Atharva Greens Resort</span><span>Rewa, MP</span></div>
-          <a class="location-link" href="https://www.google.com/maps/search/?api=1&amp;query=Atharva%20Greens%20Resort%2C%20Rewa%2C%20MP" target="_blank" rel="noopener noreferrer">Get directions <span aria-hidden="true">↗</span></a>
-        </article>
-      </section>
-
-      <nav class="story-navigation" aria-label="Invitation scenes">
-        <button class="nav-arrow nav-arrow--previous" type="button" data-previous aria-label="Previous scene">↑</button>
-        <div class="scene-dots" role="tablist" aria-label="Jump to a scene">
-          <button type="button" role="tab" aria-label="Opening" aria-selected="true" data-go="0"></button>
-          <button type="button" role="tab" aria-label="Invitation" aria-selected="false" data-go="1"></button>
-          <button type="button" role="tab" aria-label="Haldi" aria-selected="false" data-go="2"></button>
-          <button type="button" role="tab" aria-label="Carnival" aria-selected="false" data-go="3"></button>
-          <button type="button" role="tab" aria-label="Sangeet" aria-selected="false" data-go="4"></button>
-          <button type="button" role="tab" aria-label="Sacred vows" aria-selected="false" data-go="5"></button>
-          <button type="button" role="tab" aria-label="Barat and Pheras" aria-selected="false" data-go="6"></button>
-          <button type="button" role="tab" aria-label="Venue and blessings" aria-selected="false" data-go="7"></button>
-        </div>
-        <button class="nav-arrow nav-arrow--next" type="button" data-next aria-label="Next scene">↓</button>
-      </nav>
-      <p class="scroll-prompt" aria-hidden="true">Scroll to continue</p>
-    </main>
-  </body>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Harsh &amp; Aayushi — Wedding Invitation</title>
+<meta name="description" content="You are invited to celebrate the wedding of Harsh and Aayushi on 22nd and 23rd January 2027 at Atharva Greens Resort, Rewa, MP.">
+<meta name="theme-color" content="#103f3d">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://harsh7717.github.io/wedding-invitation/">
+<meta property="og:title" content="Harsh &amp; Aayushi — Wedding Invitation">
+<meta property="og:description" content="22nd &amp; 23rd January 2027 · Atharva Greens Resort, Rewa, MP">
+<meta property="og:image" content="https://harsh7717.github.io/wedding-invitation/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Harsh and Aayushi beside their wedding invitation board">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="64x64" href="img/favicon-64.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="preload" href="fonts/cinzel-deco-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/great-vibes.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/cormorant-600i.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/cormorant-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css?v=v2-1">
+<script>document.documentElement.className='js';addEventListener('load',function(){if(!window.haReady)document.documentElement.className=''})</script>
+<script src="app.js?v=v2-1" defer onerror="document.documentElement.className=''"></script>
+</head>
+<body>
+<main class="story" id="story" aria-label="Harsh and Aayushi's wedding invitation">
+<section class="scene s-doors" id="doors" tabindex="-1" aria-label="Opening: the peacock doors" style="--bg:url(img/doors-bg.webp);background-color:#2a2c18">
+<div class="frame"><div class="stage">
+<div class="ganesha">
+<picture class="art"><source type="image/avif" srcset="img/ganesha-720.avif 720w, img/ganesha-1080.avif 1080w" sizes="(max-aspect-ratio: 512/1000) 109vw, 55.82vh"><source type="image/webp" srcset="img/ganesha-720.webp 720w, img/ganesha-1080.webp 1080w" sizes="(max-aspect-ratio: 512/1000) 109vw, 55.82vh"><img src="img/ganesha-1080.webp" width="1536" height="2752" alt="Lord Ganesha on a flower swing in a palace garden" loading="eager" decoding="async" fetchpriority="low"></picture>
+<picture class="art swing"><source type="image/avif" srcset="img/ganesha-swing-720.avif 720w, img/ganesha-swing-1080.avif 1080w" sizes="(max-aspect-ratio: 512/1000) 109vw, 55.82vh"><source type="image/webp" srcset="img/ganesha-swing-720.webp 720w, img/ganesha-swing-1080.webp 1080w" sizes="(max-aspect-ratio: 512/1000) 109vw, 55.82vh"><img src="img/ganesha-swing-1080.webp" width="1536" height="2752" alt="" loading="eager" decoding="async" fetchpriority="low"></picture>
+</div>
+<div class="doors" aria-hidden="true">
+<div class="door-glow"></div>
+<div class="leaf leaf-l"><picture class="leaf-art"><source type="image/avif" srcset="img/doors-720.avif 720w, img/doors-1080.avif 1080w" sizes="(max-aspect-ratio: 512/1000) 109vw, 55.82vh"><source type="image/webp" srcset="img/doors-720.webp 720w, img/doors-1080.webp 1080w" sizes="(max-aspect-ratio: 512/1000) 109vw, 55.82vh"><img src="img/doors-1080.webp" width="1536" height="2752" alt="" loading="eager" decoding="async" fetchpriority="high"></picture></div>
+<div class="leaf leaf-r"><picture class="leaf-art"><source type="image/avif" srcset="img/doors-720.avif 720w, img/doors-1080.avif 1080w" sizes="(max-aspect-ratio: 512/1000) 109vw, 55.82vh"><source type="image/webp" srcset="img/doors-720.webp 720w, img/doors-1080.webp 1080w" sizes="(max-aspect-ratio: 512/1000) 109vw, 55.82vh"><img src="img/doors-1080.webp" width="1536" height="2752" alt="" loading="eager" decoding="async" fetchpriority="high"></picture></div>
+<div class="door-light"></div>
+<div class="door-ring"></div>
+</div>
+<p class="t orn door-prompt" style="--i:0;--s:2.8;--b:64.4;--ls:0.16" aria-hidden="true">Touch the lotus seal</p>
+<button class="door-btn" type="button"><span class="sr">Open the invitation</span></button>
+</div></div>
+</section>
+<section class="scene s-invitation" id="invitation" tabindex="-1" aria-label="Wedding invitation" style="--bg:url(img/invitation-bg.webp);background-color:#927c68">
+<div class="frame"><div class="stage">
+<picture class="art"><source type="image/avif" srcset="img/invitation-720.avif 720w, img/invitation-1080.avif 1080w, img/invitation-1440.avif 1440w" sizes="(max-aspect-ratio: 512/1000) 109vw, 55.82vh"><source type="image/webp" srcset="img/invitation-720.webp 720w, img/invitation-1080.webp 1080w, img/invitation-1440.webp 1440w" sizes="(max-aspect-ratio: 512/1000) 109vw, 55.82vh"><img src="img/invitation-1080.webp" width="1536" height="2752" alt="Aayushi and Harsh peeking out from either side of a floral invitation board" loading="lazy" decoding="async"></picture>
+<div class="copy inv">
+<p class="t orn c-eyebrow" style="--i:0;--s:2.0;--b:29.8;--ls:0.12">Wedding invitation</p>
+<h1>
+<span class="t gv c-names" style="--i:1;--s:11;--b:37.2">Harsh</span>
+<span class="t gv c-amp" style="--i:2;--s:7;--b:40.7">&amp;</span>
+<span class="t gv c-names" style="--i:3;--s:11;--b:45.0">Aayushi</span>
+</h1>
+<p>
+<span class="t ci c-copy" style="--i:4;--s:2.75;--b:50.2">Together with their families,</span>
+<span class="t ci c-copy" style="--i:5;--s:2.75;--b:52.1">invite you to celebrate</span>
+<span class="t ci c-copy" style="--i:6;--s:2.75;--b:54.0">their wedding festivities.</span>
+</p>
+<div class="rule" style="--i:7;--y:56.1;--w:17" aria-hidden="true"></div>
+<p>
+<span class="t cb c-strong" style="--i:8;--s:3.3;--b:59.1">22nd &amp; 23rd January</span>
+<span class="t ci c-sub" style="--i:9;--s:2.9;--b:61.0">2027</span>
+</p>
+<p>
+<span class="t cb c-strong" style="--i:10;--s:3.1;--b:64.3">Atharva Greens Resort</span>
+<span class="t ci c-sub" style="--i:11;--s:2.9;--b:66.2">Rewa, MP</span>
+</p>
+</div>
+</div></div>
+</section>
+<section class="scene s-haldi has-foil" id="haldi" tabindex="-1" aria-label="Haldi" style="--bg:url(img/haldi-bg.webp);background-color:#856d49">
+<div class="frame"><div class="stage">
+<picture class="art"><source type="image/avif" srcset="img/haldi-720.avif 720w, img/haldi-1080.avif 1080w, img/haldi-1440.avif 1440w" sizes="(max-aspect-ratio: 512/1000) 109vw, 55.82vh"><source type="image/webp" srcset="img/haldi-720.webp 720w, img/haldi-1080.webp 1080w, img/haldi-1440.webp 1440w" sizes="(max-aspect-ratio: 512/1000) 109vw, 55.82vh"><img src="img/haldi-1080.webp" width="1536" height="2752" alt="Harsh and Aayushi at their haldi ceremony" loading="lazy" decoding="async"></picture>
+<div class="copy plaque">
+<p class="t orn c-eyebrow" style="--i:0;--s:2.3;--b:14.3;--ls:0.1">A sunlit celebration</p>
+<h2 class="t gv c-title" style="--i:1;--s:8.6;--b:18.9">Haldi</h2>
+<p class="t orn c-when" style="--i:2;--s:2.4;--b:21.05;--ls:0.04">22nd January 2027 · 12pm</p>
+</div>
+<div class="foil" style="left:16.602%;top:9.811%;width:67.122%;height:12.536%;--m:url(img/haldi-cover.webp)" data-src="img/haldi-cover.webp" data-hint="0.6" data-ink="dark" aria-hidden="true"><canvas></canvas></div>
+<button class="reveal" type="button" style="--rt:16.08">Reveal the Haldi details</button>
+</div></div>
+</section>
+<section class="scene s-carnival has-foil" id="carnival" tabindex="-1" aria-label="Carnival" style="--bg:url(img/carnival-bg.webp);background-color:#875d4b">
+<div class="frame"><div class="stage">
+<picture class="art"><source type="image/avif" srcset="img/carnival-720.avif 720w, img/carnival-1080.avif 1080w, img/carnival-1440.avif 1440w" sizes="(max-aspect-ratio: 512/1000) 109vw, 55.82vh"><source type="image/webp" srcset="img/carnival-720.webp 720w, img/carnival-1080.webp 1080w, img/carnival-1440.webp 1440w" sizes="(max-aspect-ratio: 512/1000) 109vw, 55.82vh"><img src="img/carnival-1080.webp" width="1536" height="2752" alt="Harsh and Aayushi dancing at a garden carnival at sunset" loading="lazy" decoding="async"></picture>
+<div class="copy extra">
+<p class="t ci c-caption" style="--i:0;--s:3.2;--b:25.6">A garden of celebration</p>
+</div>
+<div class="copy plaque">
+<h2 class="t gv c-title" style="--i:1;--s:5.6;--b:16.42">Carnival</h2>
+<p class="t orn c-when" style="--i:2;--s:2.2;--b:18.08;--ls:0.04">22nd January 2027 · 2PM</p>
+</div>
+<div class="foil" style="left:19.661%;top:10.865%;width:60.612%;height:9.702%;--m:url(img/carnival-cover.webp)" data-src="img/carnival-cover.webp" data-hint="0.54" data-ink="dark" aria-hidden="true"><canvas></canvas></div>
+<button class="reveal" type="button" style="--rt:15.72">Reveal the Carnival details</button>
+</div></div>
+</section>
+<section class="scene s-sangeet has-foil" id="sangeet" tabindex="-1" aria-label="Sangeet" style="--bg:url(img/sangeet-bg.webp);background-color:#62485a">
+<div class="frame"><div class="stage">
+<picture class="art"><source type="image/avif" srcset="img/sangeet-720.avif 720w, img/sangeet-1080.avif 1080w, img/sangeet-1440.avif 1440w" sizes="(max-aspect-ratio: 512/1000) 109vw, 55.82vh"><source type="image/webp" srcset="img/sangeet-720.webp 720w, img/sangeet-1080.webp 1080w, img/sangeet-1440.webp 1440w" sizes="(max-aspect-ratio: 512/1000) 109vw, 55.82vh"><img src="img/sangeet-1080.webp" width="1536" height="2752" alt="Harsh and Aayushi performing on the sangeet stage" loading="lazy" decoding="async"></picture>
+<div class="copy plaque">
+<p class="t orn c-eyebrow" style="--i:0;--s:2.5;--b:16.3;--ls:0.1">An evening in rhythm</p>
+<h2 class="t gv c-title" style="--i:1;--s:10.2;--b:21.85">Sangeet</h2>
+<p class="t orn c-when" style="--i:2;--s:2.6;--b:25.45;--ls:0.04">22nd January 2027 · From 7pm</p>
+</div>
+<div class="foil" style="left:14.844%;top:12.318%;width:71.354%;height:15.589%;--m:url(img/sangeet-cover.webp)" data-src="img/sangeet-cover.webp" data-hint="0.51" data-ink="light" aria-hidden="true"><canvas></canvas></div>
+<button class="reveal" type="button" style="--rt:20.11">Reveal the Sangeet details</button>
+</div></div>
+</section>
+<section class="scene s-vows" id="vows" tabindex="-1" aria-label="The sacred vows" style="--bg:url(img/vows-bg.webp);background-color:#7a5640">
+<div class="frame"><div class="stage">
+<picture class="art"><source type="image/avif" srcset="img/vows-720.avif 720w, img/vows-1080.avif 1080w, img/vows-1440.avif 1440w" sizes="(max-aspect-ratio: 512/1000) 109vw, 55.82vh"><source type="image/webp" srcset="img/vows-720.webp 720w, img/vows-1080.webp 1080w, img/vows-1440.webp 1440w" sizes="(max-aspect-ratio: 512/1000) 109vw, 55.82vh"><img src="img/vows-1080.webp" width="1536" height="2752" alt="Harsh and Aayushi standing together beneath a floral mandap at sunset" loading="lazy" decoding="async"></picture>
+<div class="copy sky">
+<h2>
+<span class="t gv c-vows" style="--i:0;--s:4.4;--b:33.06">And so the sacred</span>
+<span class="t gv c-vows" style="--i:1;--s:4.4;--b:35.3">vows begin</span>
+</h2>
+<p class="t ci c-floor" style="--i:2;--s:3.0;--b:97.9">Two hearts, one journey</p>
+</div>
+</div></div>
+</section>
+<section class="scene s-baraat has-foil" id="baraat" tabindex="-1" aria-label="Baraat" style="--bg:url(img/baraat-bg.webp);background-color:#694438">
+<div class="frame"><div class="stage">
+<picture class="art"><source type="image/avif" srcset="img/baraat-720.avif 720w, img/baraat-1080.avif 1080w, img/baraat-1440.avif 1440w" sizes="(max-aspect-ratio: 512/1000) 109vw, 55.82vh"><source type="image/webp" srcset="img/baraat-720.webp 720w, img/baraat-1080.webp 1080w, img/baraat-1440.webp 1440w" sizes="(max-aspect-ratio: 512/1000) 109vw, 55.82vh"><img src="img/baraat-1080.webp" width="1536" height="2752" alt="Harsh arriving with his baraat procession" loading="lazy" decoding="async"></picture>
+<div class="copy plaque">
+<p class="t orn c-eyebrow" style="--i:0;--s:2.4;--b:13.0;--ls:0.1">The groom arrives</p>
+<h2 class="t gv c-title" style="--i:1;--s:10.0;--b:18.3">Baraat</h2>
+<p class="t orn c-when" style="--i:2;--s:2.4;--b:20.5;--ls:0.04">23rd January 2027 · From 8pm</p>
+</div>
+<div class="foil" style="left:20.117%;top:8.031%;width:59.896%;height:13.953%;--m:url(img/baraat-cover.webp)" data-src="img/baraat-cover.webp" data-hint="0.57" data-ink="dark" aria-hidden="true"><canvas></canvas></div>
+<button class="reveal" type="button" style="--rt:15.01">Reveal the Baraat details</button>
+</div></div>
+</section>
+<section class="scene s-varmala has-foil" id="varmala" tabindex="-1" aria-label="Varmala" style="--bg:url(img/varmala-bg.webp);background-color:#664233">
+<div class="frame"><div class="stage">
+<picture class="art"><source type="image/avif" srcset="img/varmala-720.avif 720w, img/varmala-1080.avif 1080w, img/varmala-1440.avif 1440w" sizes="(max-aspect-ratio: 512/1000) 109vw, 55.82vh"><source type="image/webp" srcset="img/varmala-720.webp 720w, img/varmala-1080.webp 1080w, img/varmala-1440.webp 1440w" sizes="(max-aspect-ratio: 512/1000) 109vw, 55.82vh"><img src="img/varmala-1080.webp" width="1536" height="2752" alt="Harsh and Aayushi exchanging varmala garlands under fireworks" loading="lazy" decoding="async"></picture>
+<div class="copy extra">
+<p class="t orn c-night" style="--i:0;--s:2.1;--b:4.0;--ls:0.12">Two souls, one garland</p>
+</div>
+<div class="copy plaque">
+<h2 class="t gv c-title" style="--i:1;--s:7.4;--b:18.25">Varmala</h2>
+<p class="t ci c-line" style="--i:2;--s:3.15;--b:20.35">Under a sky of fireworks</p>
+<p class="t orn c-when" style="--i:3;--s:2.25;--b:22.3;--ls:0.04">23rd January 2027 · 10pm</p>
+</div>
+<div class="foil" style="left:27.148%;top:12.1%;width:45.703%;height:11.374%;--m:url(img/varmala-cover.webp)" data-src="img/varmala-cover.webp" data-hint="0.57" data-ink="light" aria-hidden="true"><canvas></canvas></div>
+<button class="reveal" type="button" style="--rt:17.79">Reveal the Varmala details</button>
+</div></div>
+</section>
+<section class="scene s-pheras has-foil" id="pheras" tabindex="-1" aria-label="Pheras" style="--bg:url(img/pheras-bg.webp);background-color:#8e5e41">
+<div class="frame"><div class="stage">
+<picture class="art"><source type="image/avif" srcset="img/pheras-720.avif 720w, img/pheras-1080.avif 1080w, img/pheras-1440.avif 1440w" sizes="(max-aspect-ratio: 512/1000) 109vw, 55.82vh"><source type="image/webp" srcset="img/pheras-720.webp 720w, img/pheras-1080.webp 1080w, img/pheras-1440.webp 1440w" sizes="(max-aspect-ratio: 512/1000) 109vw, 55.82vh"><img src="img/pheras-1080.webp" width="1536" height="2752" alt="Harsh and Aayushi at the sacred fire for their pheras" loading="lazy" decoding="async"></picture>
+<div class="copy plaque">
+<h2 class="t gv c-title" style="--i:0;--s:9.0;--b:18.75">Pheras</h2>
+<p class="t ci c-line" style="--i:1;--s:3.1;--b:20.6">The auspicious ceremony</p>
+<p class="t orn c-when" style="--i:2;--s:2.4;--b:22.7;--ls:0.04">24th January 2027 · 4:30am</p>
+</div>
+<div class="foil" style="left:20.182%;top:11.555%;width:60.156%;height:12.028%;--m:url(img/pheras-cover.webp)" data-src="img/pheras-cover.webp" data-hint="0.54" data-ink="light" aria-hidden="true"><canvas></canvas></div>
+<button class="reveal" type="button" style="--rt:17.57">Reveal the Pheras details</button>
+</div></div>
+</section>
+<section class="scene s-venue" id="venue" tabindex="-1" aria-label="Venue and blessings" style="--bg:url(img/venue-bg.webp);background-color:#8d654d">
+<div class="frame"><div class="stage">
+<picture class="art"><source type="image/avif" srcset="img/venue-720.avif 720w, img/venue-1080.avif 1080w, img/venue-1440.avif 1440w" sizes="(max-aspect-ratio: 512/1000) 109vw, 55.82vh"><source type="image/webp" srcset="img/venue-720.webp 720w, img/venue-1080.webp 1080w, img/venue-1440.webp 1440w" sizes="(max-aspect-ratio: 512/1000) 109vw, 55.82vh"><img src="img/venue-1080.webp" width="1536" height="2752" alt="Harsh and Aayushi greeting their guests with folded hands" loading="lazy" decoding="async"></picture>
+<div class="copy venue">
+<p class="t orn c-eyebrow" style="--i:0;--s:2.0;--b:10.9;--ls:0.1">With the blessings of elders</p>
+<p class="t ci c-copy" style="--i:1;--s:3.0;--b:12.84">The good wishes of friends &amp; family</p>
+<h2 class="t gv c-title" style="--i:2;--s:8.6;--b:18.07">Harsh &amp; Aayushi</h2>
+<p>
+<span class="t ci c-copy" style="--i:3;--s:2.9;--b:21.53">We embark on a new chapter of love,</span>
+<span class="t ci c-copy" style="--i:4;--s:2.9;--b:23.38">trust, and togetherness.</span>
+</p>
+<div class="rule" style="--i:5;--y:24.35;--w:15" aria-hidden="true"></div>
+<p>
+<span class="t orn c-label" style="--i:6;--s:2.0;--b:25.63;--ls:0.16">Venue</span>
+<span class="t cb c-strong" style="--i:7;--s:3.4;--b:27.68">Atharva Greens Resort</span>
+<span class="t ci c-sub" style="--i:8;--s:2.8;--b:29.28">Rewa, MP</span>
+</p>
+<a class="pill ci" style="--i:9;--s:2.8;--top:30.4" href="https://www.google.com/maps/search/?api=1&amp;query=Atharva%20Greens%20Resort%2C%20Rewa%2C%20MP" target="_blank" rel="noopener noreferrer">Get directions <svg viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M3.5 8.5 8.5 3.5M4.6 3.5h3.9v3.9" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="sr"> (opens Google Maps)</span></a>
+</div>
+</div></div>
+</section>
+</main>
+<nav class="rail" aria-label="Scenes">
+<button type="button" aria-label="Opening"></button>
+<button type="button" aria-label="Invitation"></button>
+<button type="button" aria-label="Haldi"></button>
+<button type="button" aria-label="Carnival"></button>
+<button type="button" aria-label="Sangeet"></button>
+<button type="button" aria-label="Sacred vows"></button>
+<button type="button" aria-label="Baraat"></button>
+<button type="button" aria-label="Varmala"></button>
+<button type="button" aria-label="Pheras"></button>
+<button type="button" aria-label="Venue"></button>
+</nav>
+<div class="hint" aria-hidden="true"><i></i><span class="hint-touch">Swipe up</span><span class="hint-mouse">Scroll</span></div>
+<div class="rotate" aria-hidden="true"><div><i></i><p>Please turn your phone upright</p></div></div>
+</body>
 </html>
