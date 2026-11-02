@@ -15,11 +15,11 @@
 
 @font-face {
   font-family: "HA Script";
-  src: url("fonts/alex-brush.woff2") format("woff2");
+  src: url("fonts/tangerine.woff2") format("woff2");
   font-weight: 400;
   font-display: block;
-  ascent-override: 82.5%;
-  descent-override: 42.5%;
+  ascent-override: 75%;
+  descent-override: 25%;
   line-gap-override: 0%;
 }
 
@@ -233,7 +233,7 @@ html.js:not(.is-open) .story {
 }
 
 .gv {
-  --bo: 0.70;
+  --bo: 0.75;
   font-family: var(--script);
   font-style: normal;
   font-weight: 400;
