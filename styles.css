@@ -937,8 +937,8 @@ html.is-open .rail {
   gap: 0.35rem;
   padding-left: 0.16em;
   color: rgb(255 248 225 / 0.92);
-  font: 700 0.68rem / 1 var(--ornate);
-  letter-spacing: 0.16em;
+  font: 700 0.8rem / 1 var(--ornate);
+  letter-spacing: 0.14em;
   text-shadow: 0 0.1rem 0.6rem rgb(0 0 0 / 0.65);
   text-transform: lowercase;
   opacity: 0;
@@ -956,9 +956,11 @@ html.js .hint {
 .hint::before {
   position: absolute;
   z-index: -1;
-  inset: -0.85rem -1.7rem;
+  inset: -0.7rem -1.3rem;
   content: "";
-  background: radial-gradient(closest-side, rgb(24 12 6 / 0.5), rgb(24 12 6 / 0.28) 58%, transparent);
+  border: 1px solid rgb(240 200 110 / 0.6);
+  border-radius: 999px;
+  background: rgb(24 12 6 / 0.55);
 }
 
 html.show-hint .hint {
@@ -969,10 +971,10 @@ html.show-hint .hint {
 
 .hint i {
   order: 1;
-  width: 0.5rem;
-  height: 0.5rem;
-  border-top: 1.5px solid;
-  border-left: 1.5px solid;
+  width: 0.62rem;
+  height: 0.62rem;
+  border-top: 2px solid;
+  border-left: 2px solid;
   transform: rotate(225deg);
   animation: bob-down 1.8s ease-in-out infinite;
 }
